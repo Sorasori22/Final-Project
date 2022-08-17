@@ -6,51 +6,51 @@ class sortDataClass {
 private:
 
     int* data;
-    int dataSize, maxNum;
+    int DS, MN;
 
 public:
     void randomize() {
-        for (int i = 0; i < dataSize; i++)
-            data[i] = rand() % maxNum;
+        for (int i = 0; i < DS; i++)
+            data[i] = rand() % MN;
     }
 
-    sortDataClass(int n, string dataset, int m) {
-        dataSize = n;
-        maxNum = m;
+    sortDataClass(int s, string set, int o) {
+        DS = s;
+        MN = o;
 
-        data = new int[dataSize];
-        if (dataset == "inorder")
-            for (int i = 0; i < dataSize; i++) data[i] = i;
-        else if (dataset == "reverseorder")
-            for (int i = 0; i < dataSize; i++) data[i] = maxNum - i - 1;
-        else if (dataset == "random")
+        data = new int[DS];
+        if (set == "inorder")
+            for (int i = 0; i < DS; i++) data[i] = i;
+        else if (set == "reverseorder")
+            for (int i = 0; i < DS; i++) data[i] = MN - i - 1;
+        else if (set == "random")
             randomize();
         else
             cout << "Error";
     }
 
     void printData() {
-        for (int i = 0; i << dataSize; i++)
+        for (int i = 0; i < DS; i++)
             cout << data[i] << endl;
     }
 };
 
 int main() {
-    int dataSize = 50;
-    int maxNum = 100;
+    int DS = 10;
+    int MN = 30;
 
     cout << "In-order data set." << endl;
-    sortDataClass inorder(dataSize, "inorder", maxNum);
+    sortDataClass inorder(DS, "inorder", MN);
     inorder.printData();
     cout << endl << endl << endl << endl;
 
     cout << "Reverse-order data set." << endl;
-    sortDataClass reverse(dataSize, "reverseorder", maxNum);
+    sortDataClass reverse(DS, "reverseorder", MN);
     reverse.printData();
     cout << endl << endl << endl << endl;
 
     cout << "Random order data set." << endl;
-    sortDataClass random(dataSize, "random", maxNum);
+    sortDataClass random(DS, "random", MN);
     random.printData();
     return 0;
 }
